@@ -30,14 +30,12 @@ databaseChangeLog:
                   name: description
                   type: varchar(255)
                   constraints:
-                    unique: true
                     nullable: false
 
               - column:
                   name: city
                   type: varchar(255)
                   constraints:
-                    unique: true
                     nullable: false
 
               - column:

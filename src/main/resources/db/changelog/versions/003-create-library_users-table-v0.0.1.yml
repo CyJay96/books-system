@@ -6,19 +6,19 @@ databaseChangeLog:
   - changeSet:
       id: 003v0.0.1
       author: github.com/CyJay96
-      comment: Create USER_LIBRARIES table
+      comment: Create LIBRARY_USERS table
       changes:
         - createTable:
-            tableName: user_libraries
+            tableName: library_users
             columns:
               - column:
-                  name: user_id
+                  name: library_id
                   type: bigint
                   constraints:
                     nullable: false
 
               - column:
-                  name: library_id
+                  name: user_id
                   type: bigint
                   constraints:
                     nullable: false

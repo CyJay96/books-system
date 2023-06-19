@@ -30,24 +30,17 @@ databaseChangeLog:
                   name: first_name
                   type: varchar(255)
                   constraints:
-                    nullable: true
+                    nullable: false
 
               - column:
                   name: last_name
                   type: varchar(255)
                   constraints:
-                    nullable: true
+                    nullable: false
 
               - column:
                   name: email
                   type: varchar(255)
                   constraints:
                     unique: true
-                    nullable: false
-
-              - column:
-                  name: registration_date
-                  type: timestamp(6) with time zone
-                  defaultValue: "NOW()"
-                  constraints:
                     nullable: false

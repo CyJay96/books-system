@@ -6,7 +6,9 @@ import chief.digital.bookssystem.model.dto.request.LibraryDtoRequest;
 import chief.digital.bookssystem.model.dto.response.LibraryDtoResponse;
 import chief.digital.bookssystem.model.dto.response.PageResponse;
 import chief.digital.bookssystem.model.entity.Library;
+import chief.digital.bookssystem.model.entity.User;
 import chief.digital.bookssystem.repository.LibraryRepository;
+import chief.digital.bookssystem.repository.UserRepository;
 import chief.digital.bookssystem.service.LibraryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -20,6 +22,7 @@ import java.util.List;
 public class LibraryServiceImpl implements LibraryService {
 
     private final LibraryRepository libraryRepository;
+    private final UserRepository userRepository;
     private final LibraryMapper libraryMapper;
 
     @Override
@@ -57,6 +60,30 @@ public class LibraryServiceImpl implements LibraryService {
         Library library = libraryRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException(Library.class, id));
         libraryMapper.updateLibrary(libraryDtoRequest, library);
+        return libraryMapper.toLibraryDtoResponse(libraryRepository.save(library));
+    }
+
+    @Override
+    public LibraryDtoResponse addUserByUserId(Long libraryId, Long userId) {
+        Library library = libraryRepository.findById(libraryId)
+                .orElseThrow(() -> new EntityNotFoundException(Library.class, libraryId));
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new EntityNotFoundException(User.class, userId));
+
+        library.getUsers().add(user);
+
+        return libraryMapper.toLibraryDtoResponse(libraryRepository.save(library));
+    }
+
+    @Override
+    public LibraryDtoResponse deleteUserByUserId(Long libraryId, Long userId) {
+        Library library = libraryRepository.findById(libraryId)
+                .orElseThrow(() -> new EntityNotFoundException(Library.class, libraryId));
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new EntityNotFoundException(User.class, userId));
+
+        library.getUsers().remove(user);
+
         return libraryMapper.toLibraryDtoResponse(libraryRepository.save(library));
     }
 

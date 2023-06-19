@@ -130,6 +130,44 @@ public class LibraryController {
         );
     }
 
+    @Operation(summary = "Add User to Library by User ID", tags = "LibraryController")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Added User to Library by User ID"),
+            @ApiResponse(responseCode = "404", description = "Entity not found", content = {@Content(mediaType = "application/json", schema = @Schema(implementation = APIResponse.class))})
+    })
+    @PatchMapping("/addUser/{libraryId}/{userId}")
+    public ResponseEntity<APIResponse<LibraryDtoResponse>> addUserByUserId(
+            @PathVariable @NotNull @PositiveOrZero Long libraryId,
+            @PathVariable @NotNull @PositiveOrZero Long userId) {
+        LibraryDtoResponse library = libraryService.addUserByUserId(libraryId, userId);
+
+        return APIResponse.of(
+                "User with ID " + userId + " was added to the Library with ID " + libraryId,
+                LIBRARY_API_PATH + "/" + libraryId + "/" + userId,
+                HttpStatus.OK,
+                library
+        );
+    }
+
+    @Operation(summary = "Delete User to Library by User ID", tags = "LibraryController")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Deleted User to Library by User ID"),
+            @ApiResponse(responseCode = "404", description = "Entity not found", content = {@Content(mediaType = "application/json", schema = @Schema(implementation = APIResponse.class))})
+    })
+    @PatchMapping("/deleteUser/{libraryId}/{userId}")
+    public ResponseEntity<APIResponse<LibraryDtoResponse>> deleteUserByUserId(
+            @PathVariable @NotNull @PositiveOrZero Long libraryId,
+            @PathVariable @NotNull @PositiveOrZero Long userId) {
+        LibraryDtoResponse library = libraryService.deleteUserByUserId(libraryId, userId);
+
+        return APIResponse.of(
+                "User with ID " + userId + " was deleted to the Library with ID " + libraryId,
+                LIBRARY_API_PATH + "/" + libraryId + "/" + userId,
+                HttpStatus.OK,
+                library
+        );
+    }
+
     @Operation(summary = "Delete Library by ID", tags = "LibraryController")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Deleted Library by ID"),

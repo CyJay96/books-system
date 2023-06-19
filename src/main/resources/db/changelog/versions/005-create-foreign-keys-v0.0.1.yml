@@ -6,12 +6,12 @@ databaseChangeLog:
   - changeSet:
       id: 005v0.0.1-1
       author: github.com/CyJay96
-      comment: Add FK for USER_LIBRARIES table
+      comment: Add FK for LIBRARY_USERS table
       changes:
         - addForeignKeyConstraint:
             baseColumnNames: library_id
-            baseTableName: user_libraries
-            constraintName: fk_user_libraries_libraries
+            baseTableName: library_users
+            constraintName: fk_library_users_libraries
             deferrable: false
             initiallyDeferred: false
             referencedColumnNames: id
@@ -20,12 +20,12 @@ databaseChangeLog:
   - changeSet:
       id: 005v0.0.1-2
       author: github.com/CyJay96
-      comment: Add FK for USER_LIBRARIES table
+      comment: Add FK for LIBRARY_USERS table
       changes:
         - addForeignKeyConstraint:
             baseColumnNames: user_id
-            baseTableName: user_libraries
-            constraintName: fk_user_libraries_users
+            baseTableName: library_users
+            constraintName: fk_library_users_users
             deferrable: false
             initiallyDeferred: false
             referencedColumnNames: id

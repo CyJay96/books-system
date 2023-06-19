@@ -15,5 +15,9 @@ public interface LibraryService {
 
     LibraryDtoResponse update(Long id, LibraryDtoRequest libraryDtoRequest);
 
+    LibraryDtoResponse addUserByUserId(Long libraryId, Long userId);
+
+    LibraryDtoResponse deleteUserByUserId(Long libraryId, Long userId);
+
     void deleteById(Long id);
 }

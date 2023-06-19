@@ -3,9 +3,11 @@ databaseChangeLog:
       file: db/changelog/versions/001-create-users-table-v0.0.1.yml
   - include: # Create LIBRARIES table
       file: db/changelog/versions/002-create-libraries-table-v0.0.1.yml
-  - include: # Create USER_LIBRARIES table
-      file: db/changelog/versions/003-create-user_libraries-table-v0.0.1.yml
+  - include: # Create LIBRARY_USERS table
+      file: db/changelog/versions/003-create-library_users-table-v0.0.1.yml
   - include: # Create BOOKS table
       file: db/changelog/versions/004-create-books-table-v0.0.1.yml
   - include: # Create FOREIGN KEYS
       file: db/changelog/versions/005-create-foreign-keys-v0.0.1.yml
+  - include: # Insert TEST data
+      file: db/changelog/versions/006-insert-test-data-v0.0.1.yml
