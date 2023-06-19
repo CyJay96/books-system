@@ -1,0 +1,702 @@
+{
+	"info": {
+		"_postman_id": "9e6e686e-8c58-4e3a-a24e-8ef683b77ca3",
+		"name": "BooksSystem",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22750065"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Save",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"new username\",\r\n    \"firstName\": \"new firstName\",\r\n    \"lastName\": \"new lastName\",\r\n    \"email\": \"test@example.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{hostUrl}}/api/v0/users",
+							"host": [
+								"{{hostUrl}}"
+							],
+							"path": [
+								"api",
+								"v0",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{hostUrl}}/api/v0/users?page=0&size=4",
+							"host": [
+								"{{hostUrl}}"
+							],
+							"path": [
+								"api",
+								"v0",
+								"users"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{hostUrl}}/api/v0/users/1",
+							"host": [
+								"{{hostUrl}}"
+							],
+							"path": [
+								"api",
+								"v0",
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"update username\",\r\n    \"firstName\": \"update firstName\",\r\n    \"lastName\": \"update lastName\",\r\n    \"email\": \"update@example.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{hostUrl}}/api/v0/users/1",
+							"host": [
+								"{{hostUrl}}"
+							],
+							"path": [
+								"api",
+								"v0",
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Partial update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"put firstName\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{hostUrl}}/api/v0/users/1",
+							"host": [
+								"{{hostUrl}}"
+							],
+							"path": [
+								"api",
+								"v0",
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete by ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{hostUrl}}/api/v0/users/1",
+							"host": [
+								"{{hostUrl}}"
+							],
+							"path": [
+								"api",
+								"v0",
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Library",
+			"item": [
+				{
+					"name": "Save",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"new text\",\r\n    \"description\": \"new username\",\r\n    \"city\": \"new city\",\r\n    \"openingTime\": \"09:30\",\r\n    \"closingTime\": \"21:30\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{hostUrl}}/api/v0/libraries",
+							"host": [
+								"{{hostUrl}}"
+							],
+							"path": [
+								"api",
+								"v0",
+								"libraries"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{hostUrl}}/api/v0/libraries?page=0&size=4",
+							"host": [
+								"{{hostUrl}}"
+							],
+							"path": [
+								"api",
+								"v0",
+								"libraries"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{hostUrl}}/api/v0/libraries/1",
+							"host": [
+								"{{hostUrl}}"
+							],
+							"path": [
+								"api",
+								"v0",
+								"libraries",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"update text\",\r\n    \"description\": \"update username\",\r\n    \"city\": \"update city\",\r\n    \"openingTime\": \"10:30\",\r\n    \"closingTime\": \"22:30\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{hostUrl}}/api/v0/libraries/1",
+							"host": [
+								"{{hostUrl}}"
+							],
+							"path": [
+								"api",
+								"v0",
+								"libraries",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Partial update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"city\": \"put city\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{hostUrl}}/api/v0/libraries/1",
+							"host": [
+								"{{hostUrl}}"
+							],
+							"path": [
+								"api",
+								"v0",
+								"libraries",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{hostUrl}}/api/v0/libraries/addUser/1/4",
+							"host": [
+								"{{hostUrl}}"
+							],
+							"path": [
+								"api",
+								"v0",
+								"libraries",
+								"addUser",
+								"1",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteUser",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{hostUrl}}/api/v0/libraries/deleteUser/1/2",
+							"host": [
+								"{{hostUrl}}"
+							],
+							"path": [
+								"api",
+								"v0",
+								"libraries",
+								"deleteUser",
+								"1",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete by ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{hostUrl}}/api/v0/libraries/1",
+							"host": [
+								"{{hostUrl}}"
+							],
+							"path": [
+								"api",
+								"v0",
+								"libraries",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Book",
+			"item": [
+				{
+					"name": "Save",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"new title\",\r\n    \"description\": \"new description\",\r\n    \"author\": \"new author\",\r\n    \"genre\": \"new genre\",\r\n    \"publicationYear\": 1861\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{hostUrl}}/api/v0/books/1",
+							"host": [
+								"{{hostUrl}}"
+							],
+							"path": [
+								"api",
+								"v0",
+								"books",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{hostUrl}}/api/v0/books?page=0&size=4",
+							"host": [
+								"{{hostUrl}}"
+							],
+							"path": [
+								"api",
+								"v0",
+								"books"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{hostUrl}}/api/v0/books/1",
+							"host": [
+								"{{hostUrl}}"
+							],
+							"path": [
+								"api",
+								"v0",
+								"books",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"update title\",\r\n    \"description\": \"update description\",\r\n    \"author\": \"update author\",\r\n    \"genre\": \"update genre\",\r\n    \"publicationYear\": 1961\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{hostUrl}}/api/v0/books/1",
+							"host": [
+								"{{hostUrl}}"
+							],
+							"path": [
+								"api",
+								"v0",
+								"books",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Partial update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"description\": \"put description\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{hostUrl}}/api/v0/books/1",
+							"host": [
+								"{{hostUrl}}"
+							],
+							"path": [
+								"api",
+								"v0",
+								"books",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete by ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{hostUrl}}/api/v0/books/1",
+							"host": [
+								"{{hostUrl}}"
+							],
+							"path": [
+								"api",
+								"v0",
+								"books",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "hostUrl",
+			"value": "localhost:8080",
+			"type": "string"
+		}
+	]
+}

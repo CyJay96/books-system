@@ -1,0 +1,46 @@
+databaseChangeLog:
+  - preConditions:
+      - runningAs:
+          username: postgres
+
+  - changeSet:
+      id: 005v0.0.1-1
+      author: github.com/CyJay96
+      comment: Add FK for LIBRARY_USERS table
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: library_id
+            baseTableName: library_users
+            constraintName: fk_library_users_libraries
+            deferrable: false
+            initiallyDeferred: false
+            referencedColumnNames: id
+            referencedTableName: libraries
+
+  - changeSet:
+      id: 005v0.0.1-2
+      author: github.com/CyJay96
+      comment: Add FK for LIBRARY_USERS table
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: user_id
+            baseTableName: library_users
+            constraintName: fk_library_users_users
+            deferrable: false
+            initiallyDeferred: false
+            referencedColumnNames: id
+            referencedTableName: users
+
+  - changeSet:
+      id: 005v0.0.1-3
+      author: github.com/CyJay96
+      comment: Add FK for BOOKS table
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: library_id
+            baseTableName: books
+            constraintName: fk_books_libraries
+            deferrable: false
+            initiallyDeferred: false
+            referencedColumnNames: id
+            referencedTableName: libraries
