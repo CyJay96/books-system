@@ -207,7 +207,7 @@ public class LibraryControllerTest {
     }
 
     @Test
-    @DisplayName("Delete User to Library by User ID")
+    @DisplayName("Delete User from Library by User ID")
     void checkDeleteUserByUserIdShouldReturnLibraryDtoResponse() {
         doReturn(expectedLibraryDtoResponse).when(libraryService).deleteUserByUserId(TEST_ID, TEST_ID);
 

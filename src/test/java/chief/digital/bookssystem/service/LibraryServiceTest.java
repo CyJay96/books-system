@@ -222,7 +222,7 @@ class LibraryServiceTest {
     }
 
     @Test
-    @DisplayName("Delete User to Library by User ID")
+    @DisplayName("Delete User from Library by User ID")
     void checkDeleteUserByUserIdShouldReturnLibraryDtoResponse() {
         doReturn(Optional.of(expectedLibrary)).when(libraryRepository).findById(TEST_ID);
         doReturn(Optional.of(expectedUser)).when(userRepository).findById(TEST_ID);
