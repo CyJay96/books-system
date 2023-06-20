@@ -149,9 +149,9 @@ public class LibraryController {
         );
     }
 
-    @Operation(summary = "Delete User to Library by User ID", tags = "LibraryController")
+    @Operation(summary = "Delete User from Library by User ID", tags = "LibraryController")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Deleted User to Library by User ID"),
+            @ApiResponse(responseCode = "200", description = "Deleted User from Library by User ID"),
             @ApiResponse(responseCode = "404", description = "Entity not found", content = {@Content(mediaType = "application/json", schema = @Schema(implementation = APIResponse.class))})
     })
     @PatchMapping("/deleteUser/{libraryId}/{userId}")

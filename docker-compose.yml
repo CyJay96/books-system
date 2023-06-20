@@ -1,0 +1,32 @@
+version: '3.9'
+
+services:
+  book-system:
+    build:
+      dockerfile: Dockerfile
+      context: ./
+    image: cyjay96/book-system
+    ports:
+      - "8080:8080"
+    environment:
+      POSTGRES_HOST: postgres
+      POSTGRES_PORT: 5432
+      POSTGRES_DB: books_system
+    networks:
+      - postgres-network
+    restart: unless-stopped
+
+  postgres:
+    image: postgres:15
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: books_system
+    networks:
+      - postgres-network
+    restart: unless-stopped
+
+networks:
+  postgres-network:

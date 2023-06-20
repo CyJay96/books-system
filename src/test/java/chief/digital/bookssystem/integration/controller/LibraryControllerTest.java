@@ -159,7 +159,7 @@ class LibraryControllerTest extends BaseIntegrationTest {
     }
 
     @Test
-    @DisplayName("Delete User to Library by User ID")
+    @DisplayName("Delete User from Library by User ID")
     void checkDeleteUserByUserIdShouldReturnLibraryDtoResponse() throws Exception {
         Long existsLibraryId = libraryRepository.findFirstByOrderByIdAsc().get().getId();
         Long existsUserId = userRepository.findFirstByOrderByIdAsc().get().getId();
