@@ -56,7 +56,7 @@ public class Library implements BaseEntity<Long> {
     @Builder.Default
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
-    @OneToMany(mappedBy = "library", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "library", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Book> books = new ArrayList<>();
 
     @Builder.Default
