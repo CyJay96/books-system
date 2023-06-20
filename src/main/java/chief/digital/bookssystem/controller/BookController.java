@@ -29,16 +29,16 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import static chief.digital.bookssystem.controller.BookController.USER_API_PATH;
+import static chief.digital.bookssystem.controller.BookController.BOOK_API_PATH;
 
 @Validated
 @RestController
 @RequiredArgsConstructor
-@RequestMapping(value = USER_API_PATH)
+@RequestMapping(value = BOOK_API_PATH)
 @Tag(name = "BookController", description = "Book API")
 public class BookController {
 
-    public static final String USER_API_PATH = "/api/v0/books";
+    public static final String BOOK_API_PATH = "/api/v0/books";
 
     private final BookService bookService;
 
@@ -54,7 +54,7 @@ public class BookController {
 
         return APIResponse.of(
                 "Book with ID " + book.getId() + " was created",
-                USER_API_PATH,
+                BOOK_API_PATH,
                 HttpStatus.CREATED,
                 book
         );
@@ -71,7 +71,7 @@ public class BookController {
         return APIResponse.of(
                 "All Books: page_number: " + pageable.getPageNumber() +
                         "; page_size: " + pageable.getPageSize(),
-                USER_API_PATH,
+                BOOK_API_PATH,
                 HttpStatus.OK,
                 books
         );
@@ -88,7 +88,7 @@ public class BookController {
 
         return APIResponse.of(
                 "Book with ID " + book.getId() + " was found",
-                USER_API_PATH + "/" + id,
+                BOOK_API_PATH + "/" + id,
                 HttpStatus.OK,
                 book
         );
@@ -107,7 +107,7 @@ public class BookController {
 
         return APIResponse.of(
                 "Changes were applied to the Book with ID " + id,
-                USER_API_PATH + "/" + id,
+                BOOK_API_PATH + "/" + id,
                 HttpStatus.OK,
                 book
         );
@@ -126,7 +126,7 @@ public class BookController {
 
         return APIResponse.of(
                 "Partial changes were applied to the Book with ID " + id,
-                USER_API_PATH + "/" + id,
+                BOOK_API_PATH + "/" + id,
                 HttpStatus.OK,
                 book
         );
@@ -143,7 +143,7 @@ public class BookController {
 
         return APIResponse.of(
                 "Book with ID " + id + " was deleted",
-                USER_API_PATH + "/" + id,
+                BOOK_API_PATH + "/" + id,
                 HttpStatus.NO_CONTENT,
                 null
         );
